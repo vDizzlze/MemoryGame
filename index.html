@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PhotoViewer</title>
+	<link rel="stylesheet" href="myCSS.css">
+</head>
+<body>
+
+	<div id="mainPanel">
+		<div id="headPanel">
+			<div id="heading">
+				<img src="logo.png" id="logo" alt="">
+			</div>
+			<div id="navigation"> 
+				<button type="button" id="gameBtn">Game</button>
+				<button type="button" id="aboutBtn">About</button>
+			</div>
+		</div>
+
+		<div id="bodyPanel">
+			<div id="gamePanel">
+				<div id="control">
+					<div id="startDiv">
+						<button type="button" id="startBtn">Start Game</button>
+					</div>
+					<div id="settingsDiv">
+						<span class="settings">
+							Difficulty: 
+							<select name="difficulty" id="difficulty">
+								<option value="easy">Easy</option>
+								<option value="medium">Medium</option>
+								<option value="difficult">Difficult</option>
+							</select>
+						</span>
+						<span class="settings" id="timer">
+							Time: 3:00
+						</span>
+						<span class="settings" id="score">
+							Score: 0
+						</span>
+					</div>
+				</div>
+
+				<div id="selector">
+					<div id="thumbnails">
+						<div>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="0"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="1"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="2"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="3"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="4"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="5"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="6"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="7"/>
+						</div>
+
+						<div>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="8"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="9"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="10"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="11"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="12"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="13"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="14"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="15"/>
+						</div>
+
+						<div>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="16"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="17"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="18"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="19"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="20"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="21"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="22"/>
+							<img src="images/CardBack.jpg" title="" class="thumbnail" id="23"/>
+						</div>
+
+						<div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+
+			<div id="aboutPanel">
+				<h2>Rules: </h2>
+				<h3>
+					<p>Easy Difficulty: Pick 2 identical cards in a row, 3 minutes timer, time remaining is worth 1 point for each remaining second</p>
+					<p>Medium Difficulty: Pick 3 identical cards in a row, 2 minutes timer, time remaining is worth 5 points for each remaining second</p>
+					<p>Difficult Difficulty: Pick 4 identical cards in a row, 1 minute timer, time remaining is worth 10 points for each remaining second</p>
+				</h3>
+				<h2>Created by: </h2>
+				<img src="vikash.jpeg" class="pic"/>
+				<h3>Vikash Dookie</h3>
+			</div>
+
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="myJS.js"></script>
+
+</body>
+</html>
