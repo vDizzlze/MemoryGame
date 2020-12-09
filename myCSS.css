@@ -68,6 +68,12 @@ button {
     transform: translate(5%, 0%);
 }
 
+#gamePanel{
+	display: initial;
+	width: 90%;
+	height: 75%;
+}
+
 #selector {
 	/*width: 40%;*/
 	height: inherit;
