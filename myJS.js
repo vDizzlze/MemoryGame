@@ -1,4 +1,3 @@
-var thumb = document.getElementsByClassName("thumbnail"); //array of images
 var gameBtn =  document.getElementById("gameBtn"); //nav button to game page
 var aboutBtn =  document.getElementById("aboutBtn"); //nav button to about page
 var startBtn = document.getElementById("startBtn"); //start/stop game
@@ -15,12 +14,12 @@ var card2 = undefined; //2nd clicked card
 var card3 = undefined; //3rd clicked card
 var card4 = undefined; //4th clicked card
 var score = 0; //keps track of the score
-var scoreSpan = document.getElementById("score"); //span element to display score
-var backgroundSound = new repeatSound("audio/background.mp3"); //sound to play in background of game
-var correctSound = new sound("audio/correct.mp3"); //sound to play when cards are mathed
-var wrongSound = new sound("audio/wrong.mp3"); //sound to play when wrong cards are mathed
-var winSound = new sound("audio/win.mp3"); //sound to play when win
-var timeOutSound = new sound("audio/timeOut.mp3"); //sound to play when time is up
+var scoreSpan = document.getElementById("score", 1); //span element to display score
+var backgroundSound = new repeatSound("audio/background.mp3", 0.2); //sound to play in background of game
+var correctSound = new sound("audio/correct.mp3", 1); //sound to play when cards are mathed
+var wrongSound = new sound("audio/wrong.mp3", 1); //sound to play when wrong cards are mathed
+var winSound = new sound("audio/win.mp3", 1); //sound to play when win
+var timeOutSound = new sound("audio/timeOut.mp3", 0.2); //sound to play when time is up
 var timeLeft; //time left in game
 
 //An object that represents a card
@@ -112,8 +111,15 @@ function easy() {
 						}
 					}
 					else {
-						setTimeout(wrongCard, 200);
+						let pos1 = card1.position;
+						let pos2 = card2.position;
+						card1 = undefined;
+						card2 = undefined;
 						wrongSound.play();
+						setTimeout(function() {
+							document.getElementById(pos1).src = "images/CardBack.jpg";
+							document.getElementById(pos2).src = "images/CardBack.jpg";
+						}, 500);
 					}
 				}
 			}
@@ -144,8 +150,15 @@ function medium() {
 				else if(card2 == undefined) {
 					card2 = new card(cards[i].name, i);
 					if((!card1.compare(card2))){
-						setTimeout(wrongCard, 200);
+						let pos1 = card1.position;
+						let pos2 = card2.position;
+						card1 = undefined;
+						card2 = undefined;
 						wrongSound.play();
+						setTimeout(function() {
+							document.getElementById(pos1).src = "images/CardBack.jpg";
+							document.getElementById(pos2).src = "images/CardBack.jpg";
+						}, 500);
 					}
 				}
 				else if(card3 == undefined) {
@@ -169,8 +182,18 @@ function medium() {
 						}
 					}
 					else {
-						setTimeout(wrongCard, 200);
+						let pos1 = card1.position;
+						let pos2 = card2.position;
+						let pos3 = card3.position;
+						card1 = undefined;
+						card2 = undefined;
+						card3 = undefined;
 						wrongSound.play();
+						setTimeout(function() {
+							document.getElementById(pos1).src = "images/CardBack.jpg";
+							document.getElementById(pos2).src = "images/CardBack.jpg";
+							document.getElementById(pos3).src = "images/CardBack.jpg";
+						}, 500);
 					}
 				}
 			}
@@ -202,15 +225,32 @@ function difficult() {
 				else if(card2 == undefined) {
 					card2 = new card(cards[i].name, i);
 					if((!card1.compare(card2))){
-						setTimeout(wrongCard, 200);
+						let pos1 = card1.position;
+						let pos2 = card2.position;
+						card1 = undefined;
+						card2 = undefined;
 						wrongSound.play();
+						setTimeout(function() {
+							document.getElementById(pos1).src = "images/CardBack.jpg";
+							document.getElementById(pos2).src = "images/CardBack.jpg";
+						}, 500);
 					}
 				}
 				else if(card3 == undefined) {
 					card3 = new card(cards[i].name, i);
 					if((!card1.compare(card3))){
-						setTimeout(wrongCard, 200);
+						let pos1 = card1.position;
+						let pos2 = card2.position;
+						let pos3 = card3.position;
+						card1 = undefined;
+						card2 = undefined;
+						card3 = undefined;
 						wrongSound.play();
+						setTimeout(function() {
+							document.getElementById(pos1).src = "images/CardBack.jpg";
+							document.getElementById(pos2).src = "images/CardBack.jpg";
+							document.getElementById(pos3).src = "images/CardBack.jpg";
+						}, 500);
 					}
 				}
 				else if(card4 == undefined) {
@@ -236,8 +276,21 @@ function difficult() {
 						}
 					}
 					else {
-						setTimeout(wrongCard, 200);
+						let pos1 = card1.position;
+						let pos2 = card2.position;
+						let pos3 = card3.position;
+						let pos4 = card4.position;
+						card1 = undefined;
+						card2 = undefined;
+						card3 = undefined;
+						card4 = undefined;
 						wrongSound.play();
+						setTimeout(function() {
+							document.getElementById(pos1).src = "images/CardBack.jpg";
+							document.getElementById(pos2).src = "images/CardBack.jpg";
+							document.getElementById(pos3).src = "images/CardBack.jpg";
+							document.getElementById(pos4).src = "images/CardBack.jpg";
+						}, 500);
 					}
 				}
 			}
@@ -245,61 +298,12 @@ function difficult() {
 	}
 }
 
-//When a wrong card is clicked flip back over cards and set selected cards back to undefined
-function wrongCard() {
-	switch(difficulty) {
-		case "easy":
-			if(card1 !=undefined) {
-				document.getElementById(card1.position).src = "images/CardBack.jpg";
-				card1 = undefined;
-			}
-			if(card2 !=undefined) {
-				document.getElementById(card2.position).src = "images/CardBack.jpg";
-				card2 = undefined;
-			}
-			break;
-
-		case "medium":
-			if(card1 !=undefined) {
-				document.getElementById(card1.position).src = "images/CardBack.jpg";
-				card1 = undefined;
-			}
-			if(card2 !=undefined) {
-				document.getElementById(card2.position).src = "images/CardBack.jpg";
-				card2 = undefined;
-			}
-			if(card3 !=undefined) {
-				document.getElementById(card3.position).src = "images/CardBack.jpg";
-				card3 = undefined;
-			}
-			break;
-
-		case "difficult":
-			if(card1 !=undefined) {
-				document.getElementById(card1.position).src = "images/CardBack.jpg";
-				card1 = undefined;
-			}
-			if(card2 !=undefined) {
-				document.getElementById(card2.position).src = "images/CardBack.jpg";
-				card2 = undefined;
-			}
-			if(card3 !=undefined) {
-				document.getElementById(card3.position).src = "images/CardBack.jpg";
-				card3 = undefined;
-			}
-			if(card4 !=undefined) {
-				document.getElementById(card4.position).src = "images/CardBack.jpg";
-				card4 = undefined;
-			}
-			break;
-	}
-}
-
 //Object to add sound to game ("Game Sound", 2020)
-//taken from: https://www.w3schools.com/graphics/game_sound.asp
-function sound(src) {
+//Modified from: https://www.w3schools.com/graphics/game_sound.asp
+function sound(src, volume) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
+    this.sound.volume = volume;
     this.sound.setAttribute("preload", "auto");
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
@@ -307,21 +311,20 @@ function sound(src) {
     this.play = function(){
         this.sound.play();
     }
-    this.stop = function(){
-        this.sound.pause();
-    }    
 }
 
-//Object to loop a sound
-function repeatSound(src) {
+//Modified sound object to loop a sound
+function repeatSound(src, volume) {
     this.repeatSound = document.createElement("audio");
     this.repeatSound.src = src;
+    this.repeatSound.volume = volume;
     this.repeatSound.setAttribute("preload", "auto");
     this.repeatSound.setAttribute("controls", "none");
     this.repeatSound.setAttribute("loop", "loop");
     this.repeatSound.style.display = "none";
     document.body.appendChild(this.repeatSound);
     this.play = function(){
+    	this.repeatSound.load();
         this.repeatSound.play();
     }
     this.stop = function(){

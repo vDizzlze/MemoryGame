@@ -68,29 +68,18 @@ button {
     transform: translate(5%, 0%);
 }
 
-#photosPanel{
-	display: initial;
-	width: 90%;
-	height: 75%;
-	margin: 0;
-    position: relative;
-    top: 50%;
-    left: 4%;
-    transform: translate(0%, -50%);
-}
-
 #selector {
 	/*width: 40%;*/
 	height: inherit;
 	margin-top: 10px;
 }
 
-#thumbnails {
+#gameCards {
 	width: inherit;
 	height: inherit;
 }
 
-.thumbnail {
+.gameCard {
 	display: inline;
 	width: 10%;
 	height: 40%;
@@ -99,7 +88,7 @@ button {
 	background-color: black;
 }
 
-.thumbnail:hover {
+.gameCard:hover {
 	background-color: white;
 	border-color: white;
 }
@@ -156,8 +145,19 @@ button {
 
 #aboutPanel{
 	display: none;
-	width: inherit;
+	width: 30%;
 	height: inherit;
 	color: white;
+	word-wrap: normal;
+	text-align: left;
+}
+
+#aboutPanel h2 {
+	text-align: center;
+}
+
+#creator {
+	margin-top: 100px;
+	text-align: center;
 }
 
